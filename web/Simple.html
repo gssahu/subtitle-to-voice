@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="/eel.js"></script>
+    <style>
+    #box{
+        display:block;
+        height: 100px;
+        width: 100%;
+        background-color:red;
+        text-align: center;
+        font-size: 30px;
+        font-weight: 500;
+        color: white;
+    }
+</style>
+</head>
+<body>
+<div id="box">Hello</div>
+<script>
+    let utterance = new SpeechSynthesisUtterance();
+    utterance.lang = 'hi-IN';
+    
+    eel.expose(spk);
+    function spk(txt){
+        document.getElementById("box").innerHTML = txt;
+        utterance.text = txt;
+        speechSynthesis.speak(utterance);
+    }
+    
+    
+    
+    
+</script>
+
+</body>
+</html>
